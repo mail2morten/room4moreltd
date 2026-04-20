@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room4more Ltd | UK Residential Property Investment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a059; /* Elegant Gold */
+            --bg-dark: #121212;
+            --bg-card: #1c1c1c;
+            --text-muted: #a0a0a0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #c5a059 0%, #ecd399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #c5a059 0%, #a88746 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: var(--primary);
+        }
+        .status-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            backdrop-blur: sm;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Background Styling */
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.95)), url('https://raw.githubusercontent.com/mail2morten/room4moreltd/refs/heads/main/horizon-manchester.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll; /* Better for mobile performance */
+        }
+
+        @media (min-width: 1024px) {
+            .hero-bg {
+                background-attachment: fixed;
+            }
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        #mobile-menu.hidden {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#121212]/90 backdrop-blur-lg border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter uppercase">
+                Room<span class="text-[#c5a059]">4</span>more
+            </div>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide uppercase items-center">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#strategy" class="nav-link">Strategy</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="btn-primary px-5 py-2 rounded text-white !text-black">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#121212] border-b border-white/5 absolute w-full left-0 px-6 py-8 flex flex-col space-y-6 text-center uppercase tracking-widest text-sm font-medium">
+            <a href="#overview" class="mobile-nav-link">Overview</a>
+            <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+            <a href="#strategy" class="mobile-nav-link">Strategy</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#contact" class="btn-primary py-4 rounded text-black font-bold">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-bg">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-[#c5a059] rounded-full filter blur-[80px] md:blur-[120px]"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl mb-6 leading-tight drop-shadow-2xl">
+                Building & Managing <br>
+                <span class="gold-gradient italic">Cashflow-Focused</span> <br>
+                Property Investments
+            </h1>
+            <p class="text-base md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-md">
+                Strategic residential property acquisitions across the UK, designed for long-term wealth creation and financial freedom.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-black font-bold uppercase tracking-widest text-xs">
+                    Partner With Us
+                </a>
+                <a href="#portfolio" class="px-8 py-4 rounded-full border border-white/40 bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all text-white font-bold uppercase tracking-widest text-xs">
+                    View Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 md:py-24 bg-[#161616]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div>
+                    <h2 class="text-sm uppercase tracking-[0.3em] text-[#c5a059] mb-4">🧭 Overview</h2>
+                    <h3 class="text-3xl md:text-4xl mb-6">Opportunistic Acquisitions. Sustainable Growth.</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed text-sm md:text-base">
+                        Room4more Ltd is a UK-registered residential property investment company focused on building long-term wealth through opportunistic, capital-growth-driven acquisitions. We target high-quality residential assets in key urban centers with strong appreciation potential.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 bg-white/5 rounded flex items-center justify-center text-[#c5a059]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm md:text-base">Our Mission</h4>
+                                <p class="text-xs md:text-sm text-gray-400">Achieve financial freedom through disciplined real estate investing while building sustainable long-term value.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 bg-white/5 rounded flex items-center justify-center text-[#c5a059]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm md:text-base">Our Vision</h4>
+                                <p class="text-xs md:text-sm text-gray-400">Scale to 8–10 units within 8 years, generating reliable passive income and significant capital growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 md:p-8 rounded-2xl text-center">
+                        <div class="text-3xl md:text-4xl font-bold mb-2 gold-gradient">1</div>
+                        <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-500">Acquisition</div>
+                    </div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl text-center">
+                        <div class="text-3xl md:text-4xl font-bold mb-2 gold-gradient">3</div>
+                        <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-500">Pipeline Projects</div>
+                    </div>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl text-center col-span-2">
+                        <div class="text-lg md:text-xl font-bold mb-2 text-white">UK & Netherlands</div>
+                        <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-500">Operating Structure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 md:mb-16">
+                <h2 class="text-sm uppercase tracking-[0.3em] text-[#c5a059] mb-4">🏠 Portfolio</h2>
+                <h3 class="text-3xl md:text-4xl">Current & Pipeline Projects</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 md:gap-8">
+                <!-- Property 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+                    <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/mail2morten/room4moreltd/refs/heads/main/farmhouse.jpeg" 
+                             alt="Parkhouse Farm Bath" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1c1c1c] to-transparent opacity-60"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="status-tag bg-amber-900/40 text-amber-300 border-amber-500/30 backdrop-blur-md">UNDER OPTION</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                            <div>
+                                <h4 class="text-xl md:text-2xl mb-1">Parkhouse Farm Bath</h4>
+                                <p class="text-sm text-gray-500">Bath, UK</p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="text-[10px] uppercase text-gray-500 mb-1">Target Exchange</p>
+                                <p class="text-sm font-bold text-[#c5a059]">27 April 2026</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6">First confirmed acquisition within the portfolio, forming the bedrock of our long-term wealth strategy.</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase font-bold tracking-wider">Buy & Hold</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase font-bold tracking-wider">Residential</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+                    <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/mail2morten/room4moreltd/refs/heads/main/grand-union.jpg" 
+                             alt="Liverpool – Grand Union" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1c1c1c] to-transparent opacity-60"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="status-tag bg-green-900/40 text-green-300 border-green-500/30 backdrop-blur-md">Signed</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                            <div>
+                                <h4 class="text-xl md:text-2xl mb-1">Liverpool – Grand Union</h4>
+                                <p class="text-sm text-gray-500">Liverpool, UK</p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="text-[10px] uppercase text-gray-500 mb-1">Completion</p>
+                                <p class="text-sm font-bold text-[#c5a059]">Nov 2026</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6">High-demand city centre apartment targeting short-term rental income and high occupancy via Airbnb.</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase font-bold tracking-wider">Short-term Rental</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase font-bold tracking-wider">Airbnb Licensed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+                    <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/mail2morten/room4moreltd/refs/heads/main/salford-west-one.png" 
+                             alt="Salford West One" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1c1c1c] to-transparent opacity-60"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="status-tag bg-green-900/40 text-green-300 border-green-500/30 backdrop-blur-md">SIGNED</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl md:text-2xl mb-1">Salford West One</h4>
+                                <p class="text-sm text-gray-500">Salford, Manchester, UK</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6">Long-term rental investment focused on stable cashflow and tenant demand in Greater Manchester.</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase font-bold tracking-wider">Buy-to-Let</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+                    <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/mail2morten/room4moreltd/refs/heads/main/horizon-manchester.png" 
+                             alt="Manchester – Horizon View" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1c1c1c] to-transparent opacity-60"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="status-tag bg-green-900/40 text-green-300 border-green-500/30 backdrop-blur-md">SIGNED</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl md:text-2xl mb-1">Manchester – Horizon View</h4>
+                                <p class="text-sm text-gray-500">Manchester, UK</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6">High-rise apartment with stadium views, targeted for premium short-term rental positioning.</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase font-bold tracking-wider">Short-term Rental</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="py-20 md:py-24 bg-[#111111]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 md:mb-16 text-center">
+                <h2 class="text-sm uppercase tracking-[0.3em] text-[#c5a059] mb-4">📊 Investment Strategy</h2>
+                <h3 class="text-3xl md:text-4xl">Quality Over Speed</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <div class="glass-card p-8 md:p-10 rounded-3xl">
+                    <div class="w-12 h-12 bg-[#c5a059]/10 rounded-xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#c5a059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl mb-4">Approach</h4>
+                    <ul class="text-sm text-gray-400 space-y-3">
+                        <li class="flex items-start gap-2">• Opportunistic deal selection</li>
+                        <li class="flex items-start gap-2">• No forced scaling</li>
+                        <li class="flex items-start gap-2">• Cross-city diversification</li>
+                        <li class="flex items-start gap-2">• Mixed rental model</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-3xl border-[#c5a059]/30">
+                    <div class="w-12 h-12 bg-[#c5a059]/10 rounded-xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#c5a059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl mb-4">Target Markets</h4>
+                    <ul class="text-sm text-gray-400 space-y-3">
+                        <li class="flex items-start gap-2">• Liverpool</li>
+                        <li class="flex items-start gap-2">• Manchester</li>
+                        <li class="flex items-start gap-2">• Bristol</li>
+                        <li class="flex items-start gap-2">• High-demand urban centers</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-3xl">
+                    <div class="w-12 h-12 bg-[#c5a059]/10 rounded-xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#c5a059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl mb-4">Risk Management</h4>
+                    <ul class="text-sm text-gray-400 space-y-3">
+                        <li class="flex items-start gap-2">• Strict selection criteria</li>
+                        <li class="flex items-start gap-2">• Conservative leverage</li>
+                        <li class="flex items-start gap-2">• Strong rental demand focus</li>
+                        <li class="flex items-start gap-2">• Portfolio diversification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+                <div class="w-full md:w-1/3">
+                    <div class="relative max-w-sm mx-auto md:max-w-none">
+                        <div class="aspect-square bg-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="https://raw.githubusercontent.com/mail2morten/room4moreltd/refs/heads/main/founder.png" 
+                                 alt="Morten Rasmussen" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-4 md:-right-6 glass-card p-5 md:p-6 rounded-2xl shadow-xl">
+                            <h5 class="text-sm font-bold">Morten Rasmussen</h5>
+                            <p class="text-[10px] md:text-xs text-[#c5a059] uppercase tracking-wider">Founder & Investor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 mt-8 md:mt-0">
+                    <h2 class="text-sm uppercase tracking-[0.3em] text-[#c5a059] mb-4">🧑‍💼 About The Founder</h2>
+                    <h3 class="text-3xl md:text-4xl mb-6">Driven by Financial Freedom</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
+                        Room4more Ltd was founded by Morten Rasmussen, an entrepreneur and real estate investor dedicated to building a structured UK property portfolio. Driven by a desire for long-term retirement security and generational wealth, Morten focuses on creating a portfolio that escapes the traditional 9–5 through high-performing passive income streams.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 md:gap-8 mt-10 border-t border-white/5 pt-10">
+                        <div>
+                            <h5 class="text-sm font-bold mb-2">Experience</h5>
+                            <p class="text-xs text-gray-500">Early-stage investor actively managing and scaling residential assets across UK's primary cities.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold mb-2">Motivation</h5>
+                            <p class="text-xs text-gray-500">Building a sustainable future through disciplined capital allocation and market-leading management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="contact" class="py-20 md:py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[#c5a059] opacity-[0.03]"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl mb-8 leading-tight">Ready to Partner on <br> <span class="gold-gradient">UK Property Opportunities?</span></h2>
+            <p class="text-gray-400 mb-12 text-sm md:text-base">We are actively seeking strategic collaborations and investment discussions. Connect with us to explore our current pipeline.</p>
+            
+            <div class="glass-card p-8 md:p-10 rounded-3xl mb-12 max-w-2xl mx-auto">
+                <div class="space-y-6 text-center sm:text-left">
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <div class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-[#c5a059]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <a href="mailto:m.rasmussen@room4moreltd.co.uk" class="text-base md:text-lg hover:text-[#c5a059] transition-colors break-all">m.rasmussen@room4moreltd.co.uk</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+                <button onclick="window.location.href='mailto:m.rasmussen@room4moreltd.co.uk'" class="btn-primary px-10 py-5 rounded-full text-black font-bold uppercase tracking-widest text-xs">
+                    Discuss Collaboration
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-xl font-bold tracking-tighter uppercase">
+                Room<span class="text-[#c5a059]">4</span>more
+            </div>
+            <div class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase text-center md:text-left">
+                &copy; 2026 Room4more Ltd. All Rights Reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest">LinkedIn</a>
+                <a href="#" class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            
+            // Prevent scrolling when menu is open
+            if (!mobileMenu.classList.contains('hidden')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
